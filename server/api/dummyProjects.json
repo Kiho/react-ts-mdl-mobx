@@ -1,12 +1,5 @@
 [
   {
-    "id": 0,
-    "projectNo": "",
-    "projectName": "",
-    "projectLocation": "",
-    "contractAmount": 0
-  },
-  {
     "id": 1,
     "projectNo": "12345",
     "projectName": "Castaic Sports Complex",
