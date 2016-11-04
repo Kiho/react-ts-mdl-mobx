@@ -1,5 +1,5 @@
-import {Project} from './model';
-import {observable, asFlat, isObservableArray, isObservableMap, isObservableObject, toJS} from 'mobx';
+import { createNew } from './model';
+import { observable, asFlat, isObservableArray, isObservableMap, isObservableObject, toJS } from 'mobx';
 
 // Default state structure
 // Everything that defines our application and that could be
@@ -18,7 +18,7 @@ const defaultState = observable({
         loading: false,
         error: null,
         data: null,
-        item: new Project()
+        item: createNew('project')
     }
 })
 

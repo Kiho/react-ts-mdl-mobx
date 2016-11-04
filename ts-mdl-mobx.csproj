@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44301</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
@@ -79,8 +79,8 @@
     <TypeScriptCompile Include="src\containers\not-found.tsx" />
     <TypeScriptCompile Include="src\model\index.ts" />
     <TypeScriptCompile Include="src\model\project.ts" />
-    <TypeScriptCompile Include="src\routes.tsx" />
     <Content Include="src\containers\flex-table.css" />
+    <TypeScriptCompile Include="src\routes.tsx" />
     <TypeScriptCompile Include="src\state.ts" />
     <Content Include="web.config" />
     <Content Include="webpack.config.js" />

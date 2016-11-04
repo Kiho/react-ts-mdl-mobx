@@ -10,17 +10,17 @@ import NotFound from "./containers/not-found";
 import About from "./containers/about";
 
 function requireAsync(main) {
-    return function(location, next) {
-        next(null, require('./components/' + main))
-    }
+    return function (location, next) {
+        next(null, require('./components/' + main));
+    };
 }
 
 function createRoutes({ state }) {
 
-    function requireLogin(nextState, replaceState, next) {
-        //if (!state.user._id) replaceState(null, '/user/login')
-        next()
-    }
+     function requireLogin(nextState, replaceState, next) {
+         // if (!state.user._id) replaceState(null, '/user/login')
+         next();
+     }
 
     return (
         <Route path="/" component={App}>

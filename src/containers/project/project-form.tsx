@@ -3,9 +3,8 @@ import { IEntity, EntityType } from '../../model';
 import { Button, Textfield, Grid, Cell, Spinner } from '../../components';
 import Error from '../app/error';
 import { BaseForm } from '../base/base-form';
-import { observable } from 'mobx'
-import { observer } from 'mobx-react'
-import { hashHistory, Link } from 'react-router';
+import { observer } from 'mobx-react';
+//import { hashHistory, Link } from 'react-router';
 
 // we will initialize base form with given entity type.
 const entityType: EntityType = 'project';
@@ -60,7 +59,7 @@ class ProjectForm extends BaseForm {
                                 floatingLabel={true} />
                         </Cell>
                     </Grid>
-                    { project.error && <Error text={project.error}/> }
+                    {project.error && <Error text={project.error} />}
                     <Grid className="formfoot">
                         <Cell col={2}>
                             <Button raised={true} colored={true} onClick={this.submitRequest}>Submit</Button>
@@ -69,12 +68,12 @@ class ProjectForm extends BaseForm {
                             <Button raised={true} colored={false} onClick={this.goBack}>Back</Button>
                         </Cell>
                         <Cell col={8}>
-                            <Spinner isActive={this._loading}/>
+                            <Spinner isActive={this._loading} />
                         </Cell>
                     </Grid>
                 </form>
             </div>
-        )
+        );
     }
 }
 

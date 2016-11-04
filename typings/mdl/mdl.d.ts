@@ -21,3 +21,6 @@ declare module componentHandler {
     function downgradeElements(elem: Element): void;
 }
 
+interface ObjectConstructor {
+    assign(target: any, ...sources: any[]): any;
+}

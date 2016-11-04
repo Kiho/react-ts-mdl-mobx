@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { Header, Textfield, Menu, MenuItem, IconButton } from '../../components';
 
-interface IHeaderProps extends React.Props<any> {
-    logout: () => void;
-};
+//interface IHeaderProps extends React.Props<any> {
+//    logout: () => void;
+//};
 
-export default function Header({
-    logout
-}: IHeaderProps) {
+export default function PageHeader() {
     return (
         <Header title="Home" className="demo-header mdl-color--grey-100 mdl-color-text--grey-600">
             <Textfield
@@ -18,7 +16,7 @@ export default function Header({
             <Menu target="nav-menu-top-right" align="right">
                 <MenuItem>About</MenuItem>
                 <MenuItem>Contact</MenuItem>
-                <MenuItem onClick={logout}>Logout</MenuItem>
+                <MenuItem>Logout</MenuItem>
             </Menu>
         </Header>
     )

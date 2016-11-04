@@ -34,7 +34,7 @@
         readOnly?: boolean;
         value?: any;
         required?: boolean;
-        onChange?: Function;
+        onChange?: any;
         onClick?: React.MouseEventHandler;
     }
 

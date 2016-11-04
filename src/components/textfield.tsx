@@ -20,10 +20,10 @@ interface SelectfieldProps extends FieldProps {
     valueLink?: any;
     ripple?: boolean;
     inputRef?: string;
-    onFocus?: Function;
-    onBlur?: Function;
-    onKeyDown?: Function;
-    onKeyUp?: Function;
+    onFocus?: any;
+    onBlur?: any;
+    onKeyDown?: any;
+    onKeyUp?: any;
     loading?: boolean;
 }
 

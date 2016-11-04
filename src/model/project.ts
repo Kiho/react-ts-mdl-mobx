@@ -1,7 +1,7 @@
-﻿export class Project {
-    public id = 0;
-    public projectNo = '';
-    public projectName = '';
-    public projectLocation = '';
-    public contractAmount = '0';
+﻿export const Project = {
+     id : 0,
+     projectNo : '',
+     projectName : '',
+     projectLocation : '',
+     contractAmount : '0'
 }  

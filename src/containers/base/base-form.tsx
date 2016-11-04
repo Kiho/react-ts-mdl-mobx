@@ -6,7 +6,7 @@ import Error from '../app/error'
 import Server from '../../actions/server'
 import { hashHistory } from 'react-router';
 
-import { IEntity, EntityType } from '../../model';
+import { IEntity, EntityType, createNew } from '../../model';
 
 // define interfaces for mobx operations and method definitions for API calls
 interface IFormProps {
@@ -49,6 +49,9 @@ export abstract class BaseForm extends React.Component<IFormProps, any>{
         super(props);
 
         this.submitRequest = this.submitRequest.bind(this);
+        this.afterSubmit = this.afterSubmit.bind(this);
+        this.init = this.init.bind(this);
+
         this.init();
     }
 
@@ -91,7 +94,12 @@ export abstract class BaseForm extends React.Component<IFormProps, any>{
     getItem(id, prevId?) {
         // we need to reload the form only if the id is different from the previous state
         if (prevId != id) {
-            this._server.getById(this.entityType, id);
+            if (id > 0) {
+                this._server.getById(this.entityType, id);
+            }
+            else {
+                this._entity.item = createNew(this.entityType);
+            }
         }
     }
 
@@ -99,12 +107,12 @@ export abstract class BaseForm extends React.Component<IFormProps, any>{
         // check validity of all inputs
         const isValid = form.checkValidity();
         if (!isValid) {
-            form.forEach((input) => {
-                if (input.field) {
-                    // need to call checkValidity method of all MDL input fields to update visual error state
-                    input.field.checkValidity();
+            for (let i = 0; i < form.length; i++) {
+                if (form[i].field) {
+                    // need to call checkValidity method of all MDL input fields to refresh visual input state
+                    form[i].field.checkValidity();
                 }
-            });
+            }
         }
         return isValid;
     }
@@ -117,13 +125,15 @@ export abstract class BaseForm extends React.Component<IFormProps, any>{
             return;
         }
         console.log("Here's the stuff you put in", this.item);
-        // const callback = (id) => { this.props.router.push('/' + this.entityType + '/' + id) }
+        // const callback = (id) => { hashHistory.push('/' + this.entityType + '/' + id) }
         // set callback to perform action after success of posting
-        const callback = () => {
-            // in this case we go back to list page
-            hashHistory.push('/' + this.entityType);
-        };
+        const callback = this.afterSubmit;
         this._server.post(this.entityType, this.item, callback);
+    }
+
+    afterSubmit() {
+        // in this case we go back to list page
+        hashHistory.push('/' + this.entityType);
     }
 
     // go back to previous page with recact router call

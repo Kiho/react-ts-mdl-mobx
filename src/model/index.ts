@@ -7,4 +7,13 @@ export interface IEntity {
     item: Object;
 }
 
-export * from './project';
+import { Project } from './project';
+
+
+export const createNew = (path: EntityType) => {
+    switch (path) {
+        case 'project':
+            return Object.assign({}, Project);
+    }
+    return null;
+};
