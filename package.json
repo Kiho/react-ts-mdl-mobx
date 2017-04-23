@@ -73,8 +73,7 @@
     "moment": ">= 2.8.0",
     "accounting": "^0.4.1",
     "rx": "^2.5.2",
-    "lodash": "^4.15.0",
-    "require-async": "^0.0.4"
+    "lodash": "^4.15.0"
   },
   "babelConfig": {
     "server": {
